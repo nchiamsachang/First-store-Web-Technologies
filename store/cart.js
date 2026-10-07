@@ -1,13 +1,13 @@
 
 var PRODUCTS = [
-    { id: 0, name: "Wheat Belly", price: 0.99, img: "images/e-books/health/WheatBelly.jpg" },
-    { id: 1, name: "Exercise Cure", price: 2.99, img: "images/e-books/health/NoExercise.jpg" },
-    { id: 2, name: "Daniel Plan", price: 2.99, img: "images/e-books/health/healthPlan.jpg" },
-    { id: 3, name: "Soul Healing", price: 1.99, img: "images/e-books/health/Soul.jpg" },
-    { id: 4, name: "What To Expect", price: 3.99, img: "images/e-books/parenting/expect.jpg" },
-    { id: 5, name: "The First Year", price: 1.99, img: "images/e-books/parenting/expect1.jpg" },
-    { id: 6, name: "Hands Free Mama", price: 0.99, img: "images/e-books/parenting/Mama.jpg" },
-    { id: 7, name: "Talk To Kids", price: 2.99, img: "images/e-books/parenting/talk.jpg" }
+    { id: 0, name: "Wheat Belly", price: 0.99, img: "../images/e-books/health/WheatBelly.jpg" },
+    { id: 1, name: "Exercise Cure", price: 2.99, img: "../images/e-books/health/NoExercise.jpg" },
+    { id: 2, name: "Daniel Plan", price: 2.99, img: "../images/e-books/health/healthPlan.jpg" },
+    { id: 3, name: "Soul Healing", price: 1.99, img: "../images/e-books/health/Soul.jpg" },
+    { id: 4, name: "What To Expect", price: 3.99, img: "../images/e-books/parenting/expect.jpg" },
+    { id: 5, name: "The First Year", price: 1.99, img: "../images/e-books/parenting/expect1.jpg" },
+    { id: 6, name: "Hands Free Mama", price: 0.99, img: "../images/e-books/parenting/Mama.jpg" },
+    { id: 7, name: "Talk To Kids", price: 2.99, img: "../images/e-books/parenting/talk.jpg" }
 ];
 
 function setCookie(name, value, days) {

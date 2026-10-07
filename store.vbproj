@@ -92,27 +92,27 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin.html" />
-    <Content Include="Cart.html" />
-    <Content Include="cart.js" />
-    <Content Include="checkout.html" />
-    <Content Include="daniel.html" />
-    <Content Include="exercise.html" />
-    <Content Include="expect.html" />
-    <Content Include="expect1.html" />
-    <Content Include="health.html" />
+    <Content Include="blog\Admin.html" />
+    <Content Include="store\Cart.html" />
+    <Content Include="store\cart.js" />
+    <Content Include="store\checkout.html" />
+    <Content Include="store\daniel.html" />
+    <Content Include="store\exercise.html" />
+    <Content Include="store\expect.html" />
+    <Content Include="store\expect1.html" />
+    <Content Include="store\health.html" />
     <Content Include="index.html" />
-    <Content Include="kids.html" />
-    <Content Include="mama.html" />
+    <Content Include="store\kids.html" />
+    <Content Include="store\mama.html" />
     <Content Include="My Project\expect1.html" />
     <Content Include="My Project\Expect2.html" />
     <Content Include="My Project\kids.html" />
     <Content Include="My Project\mama.html" />
-    <Content Include="Parenting.html" />
-    <Content Include="soul.html" />
-    <Content Include="store_index.html" />
+    <Content Include="store\Parenting.html" />
+    <Content Include="store\soul.html" />
+    <Content Include="store\store_index.html" />
     <Content Include="Web.config" />
-    <Content Include="wheat.html" />
+    <Content Include="store\wheat.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -144,7 +144,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Blog.php" />
+    <Content Include="blog\Blog.php" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -155,9 +155,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <Content Include="Process.php" />
-    <Content Include="processProduct.php" />
-    <Content Include="processCheckout.php" />
+    <Content Include="blog\Process.php" />
+    <Content Include="store\processProduct.php" />
+    <Content Include="store\processCheckout.php" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

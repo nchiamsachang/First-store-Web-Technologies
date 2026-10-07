@@ -21,9 +21,9 @@ $price = $row["price"];
 $inventory = $row["inventory"];
 
 if ($id_no >= 0 && $id_no <= 3) {
-    $imagePath = "images/e-books/health/" . $image;
+    $imagePath = "../images/e-books/health/" . $image;
 } else {
-    $imagePath = "images/e-books/parenting/" . $image;
+    $imagePath = "../images/e-books/parenting/" . $image;
 }
 
 $conn->close();
@@ -160,7 +160,7 @@ $conn->close();
         </div>
 
         <button class="buy-button" onclick="buyNow()">
-            <img src="images/home/buynow.png" alt="Buy Now" />
+            <img src="../images/home/buynow.png" alt="Buy Now" />
         </button>
 
     <?php } else { ?>

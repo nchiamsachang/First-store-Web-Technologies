@@ -11,7 +11,7 @@ $imageName = "";
 if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
 
     $imageName = basename($_FILES["image"]["name"]);
-    $uploadPath = "images/blog/" . $imageName;
+    $uploadPath = "../images/blog/" . $imageName;
     move_uploaded_file($_FILES["image"]["tmp_name"], $uploadPath);
 
 }
@@ -22,7 +22,7 @@ $record = $name . "," . $title . "," . $imageName . "," . $blogEscaped . "," . $
 
 file_put_contents("blog.txt", $record, FILE_APPEND);
 
-header("Location: admin.html");
+header("Location: Admin.html");
 exit();
 
 ?>

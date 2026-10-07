@@ -12,7 +12,7 @@
 
 body {
     background-color: #2224A2;
-    background-image: url("images/home/bg_head2.bmp");
+    background-image: url("../images/home/bg_head2.bmp");
     font-family: Arial, sans-serif;
 }
 
@@ -157,15 +157,15 @@ body {
 <div id="wrapper">
 
 <div id="div1-banner">
-    <img src="images/home/logo.png" alt="Logo">
+    <img src="../images/home/logo.png" alt="Logo">
     <div class="heading">Balanced Living – A Lifestyle</div>
-    <img src="images/home/healthHeader2.png" alt="Health Header">
+    <img src="../images/home/healthHeader2.png" alt="Health Header">
 </div>
 
 <div id="div2-nav">
 <ul>
 
-    <li><a href="index.html">Home</a></li>
+    <li><a href="../index.html">Home</a></li>
 
     <li><a href="#">About Us</a>
         <ul>
@@ -176,9 +176,9 @@ body {
 
     <li><a href="#">Products</a>
         <ul>
-            <li><a href="store_index.html">Our Store</a></li>
-            <li><a href="health.html">Health</a></li>
-            <li><a href="Parenting.html">Parenting</a></li>
+            <li><a href="../store/store_index.html">Our Store</a></li>
+            <li><a href="../store/health.html">Health</a></li>
+            <li><a href="../store/Parenting.html">Parenting</a></li>
         </ul>
     </li>
 
@@ -216,13 +216,13 @@ body {
         <ul>
             <li><a href="#">Registering</a></li>
             <li><a href="#">Festival Pictures</a></li>
-            <li><a href="blog.php">Blogs</a></li>
+            <li><a href="Blog.php">Blogs</a></li>
         </ul>
     </li>
 
     <li><a href="#">Contact Us</a>
         <ul>
-            <li><a href="store_index.html">Our Store</a></li>
+            <li><a href="../store/store_index.html">Our Store</a></li>
             <li><a href="#">Other Vendors</a></li>
         </ul>
     </li>
@@ -255,7 +255,7 @@ if (file_exists("blog.txt")) {
         echo "<div class='blog-meta'>by " . htmlspecialchars($name) . " on " . htmlspecialchars($date) . "</div>";
 
         if ($imageName != "") {
-            echo "<img src='images/blog/" . htmlspecialchars($imageName) . "' alt='" . htmlspecialchars($title) . "' />";
+            echo "<img src='../images/blog/" . htmlspecialchars($imageName) . "' alt='" . htmlspecialchars($title) . "' />";
         }
 
         echo "<div class='blog-text'>" . htmlspecialchars($blogText) . "</div>";
