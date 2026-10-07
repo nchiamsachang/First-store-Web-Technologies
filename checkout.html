@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Checkout - Balanced-Living Store</title>
+    <meta charset="UTF-8" />
+
+    <script src="cart.js"></script>
+
+    <style>
+        body {
+            background-color: #b9ffff;
+            font-family: Arial, sans-serif;
+        }
+
+        #cart-summary {
+            width: 70%;
+            border-collapse: collapse;
+            background-color: white;
+            margin: 10px 0 20px 0;
+        }
+
+        #cart-summary th {
+            background-color: #2224A2;
+            color: white;
+            padding: 8px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #cart-summary td {
+            padding: 8px;
+            border: 1px solid #999999;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .total-row td {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Checkout</h1>
+
+    <h2>Your Order</h2>
+    <div id="cart-display"></div>
+
+    <form action="processCheckout.php" method="POST">
+
+        <h2>Customer Information</h2>
+
+        <label for="name_first">First Name: *</label><br />
+        <input type="text" id="name_first" name="name_first" required pattern="[A-Za-z ]+" title="First name can only contain letters and spaces" /><br /><br />
+
+        <label for="name_last">Last Name: *</label><br />
+        <input type="text" id="name_last" name="name_last" required pattern="[A-Za-z ']+" title="Last name can only contain letters, spaces, and apostrophes" /><br /><br />
+
+        <label for="email">Email: *</label><br />
+        <input type="text" id="email" name="email" required pattern=".+@.+" title="Email must contain @ symbol" /><br /><br />
+
+        <h2>Shipping Address</h2>
+
+        <label for="address1">Address Line 1: *</label><br />
+        <input type="text" id="address1" name="address1" required onblur="validateAddress1()" /><br /><br />
+
+        <label for="address2">Address Line 2:</label><br />
+        <input type="text" id="address2" name="address2" /><br /><br />
+
+        <label for="city">City: *</label><br />
+        <input type="text" id="city" name="city" required pattern="[A-Za-z ]+" title="City can only contain letters and spaces" /><br /><br />
+
+        <label for="state">State: *</label><br />
+        <input type="text" id="state" name="state" required pattern="[A-Z]{2}" title="State must be exactly 2 capital letters" maxlength="2" /><br /><br />
+
+        <label for="zip">Zip Code: *</label><br />
+        <input type="text" id="zip" name="zip" required pattern="[0-9]{5}" title="Zip code must be exactly 5 digits" maxlength="5" /><br /><br />
+
+        <h2>Contact Information</h2>
+
+        <label for="phone">Phone: *</label><br />
+        <input type="tel" id="phone" name="phone" required pattern="(\([0-9]{3}\)[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{10})" title="Phone must be 10 digits in format: 5555555555, (555)555-5555, or 555-555-5555" /><br /><br />
+
+        <label for="fax">Fax:</label><br />
+        <input type="tel" id="fax" name="fax" pattern="(\([0-9]{3}\)[0-9]{3}-[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{10})" title="Fax must be 10 digits in format: 5555555555, (555)555-5555, or 555-555-5555" /><br /><br />
+
+        <h2>Payment Information</h2>
+
+        <label>Credit Card Type: *</label><br />
+        <input type="radio" id="visa" name="card_type" value="visa" required />
+        <label for="visa">
+            <img src="images/checkout/visa.jpg" alt="Visa" width="50" /> Visa
+        </label><br />
+
+        <input type="radio" id="mastercard" name="card_type" value="mastercard" />
+        <label for="mastercard">
+            <img src="images/checkout/mc.jpg" alt="MasterCard" width="50" /> MasterCard
+        </label><br />
+
+        <input type="radio" id="amex" name="card_type" value="amex" />
+        <label for="amex">
+            <img src="images/checkout/amex.jpg" alt="American Express" width="50" /> American Express
+        </label><br />
+
+        <input type="radio" id="discover" name="card_type" value="discover" />
+        <label for="discover">
+            <img src="images/checkout/discover.jpg" alt="Discover" width="50" /> Discover
+        </label><br /><br />
+
+        <label for="cc_no">Credit Card Number: *</label><br />
+        <input type="text" id="cc_no" name="cc_no" required maxlength="16"
+               title="Credit card number must be exactly 16 digits"
+               onchange="validateCreditCard()" /><br /><br />
+
+        <input type="submit" value="Buy Now" />
+        <input type="reset" value="Clear Form" />
+
+    </form>
+
+    <br />
+    <a href="store_index.html">Continue Shopping</a>
+
+    <p>* Required fields</p>
+
+<script>
+    function buildCartSummary() {
+        var div = document.getElementById("cart-display");
+
+        var buyId = getCookie("buy_id");
+        var buyName = decodeURIComponent(getCookie("buy_name"));
+        var buyPrice = parseFloat(getCookie("buy_price"));
+        var buyQty = parseInt(getCookie("buy_qty"));
+
+        if (!buyName) {
+            div.innerHTML = "<p>No items in cart.</p>";
+            return;
+        }
+
+        var lineTotal = buyPrice * buyQty;
+
+        var html = "<table id='cart-summary'>";
+        html += "<tr><th>Catalog #</th><th>Item</th><th>Price</th><th>Quantity</th><th>Total</th></tr>";
+        html += "<tr>";
+        html += "<td>" + buyId + "</td>";
+        html += "<td><strong>" + buyName + "</strong></td>";
+        html += "<td>$" + buyPrice.toFixed(2) + "</td>";
+        html += "<td>" + buyQty + "</td>";
+        html += "<td>$" + lineTotal.toFixed(2) + "</td>";
+        html += "</tr>";
+        html += "<tr class='total-row'>";
+        html += "<td colspan='4' style='text-align:right;'>TOTAL:</td>";
+        html += "<td>$" + lineTotal.toFixed(2) + "</td>";
+        html += "</tr>";
+        html += "</table>";
+
+        div.innerHTML = html;
+    }
+
+    function validateAddress1() {
+        var val = document.getElementById("address1").value.trim();
+        var pattern = /^\d+(\s+[A-Za-z]+)+$/;
+
+        if (!pattern.test(val)) {
+            alert("Invalid address. Address must begin with a street number followed by a street name (e.g., 123 Main Street).");
+            document.getElementById("address1").focus();
+        }
+    }
+
+    function validateCreditCard() {
+        var ccVal = document.getElementById("cc_no").value.trim();
+
+        if (!/^\d{16}$/.test(ccVal)) {
+            alert("Credit card number must be exactly 16 digits.");
+            document.getElementById("cc_no").value = "";
+            return;
+        }
+
+        var resultStr = "";
+
+        for (var i = 0; i < ccVal.length; i++) {
+            var digit = parseInt(ccVal[i]);
+
+            if (i % 2 === 0) {
+                resultStr += (digit * 2).toString();
+            } else {
+                resultStr += digit.toString();
+            }
+        }
+
+        var sum = 0;
+
+        for (var j = 0; j < resultStr.length; j++) {
+            sum += parseInt(resultStr[j]);
+        }
+
+        if (sum === 0 || sum % 10 !== 0) {
+            alert("Invalid credit card number. Please re-enter your credit card number.");
+            document.getElementById("cc_no").value = "";
+        }
+    }
+
+    window.onload = buildCartSummary;
+</script>
+
+</body>
+</html>

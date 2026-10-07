@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Administrative Blog Form</title>
+    <meta charset="UTF-8" />
+
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin: 20px 0;
+        }
+
+        .form-container {
+            width: 70%;
+            margin: 0 auto;
+            border: 1px solid #999999;
+            padding: 20px;
+        }
+
+        .form-row {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-row label {
+            width: 80px;
+            text-align: right;
+            font-weight: normal;
+            margin-right: 10px;
+        }
+
+        .form-row input[type="text"],
+        .form-row input[type="file"] {
+            width: 320px;
+            padding: 4px;
+            font-size: 14px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 22px;
+            margin: 20px 0 10px 0;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 6px;
+            font-size: 14px;
+            border: 1px solid #999999;
+        }
+
+        .button-row {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input[type="reset"],
+        input[type="submit"] {
+            padding: 4px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Administrative Blog Form</h1>
+
+    <form action="http://localhost/process.php" method="POST" enctype="multipart/form-data">
+
+        <div class="form-container">
+
+            <div class="form-row">
+                <label for="name">Name :</label>
+                <input type="text" id="name" name="name" />
+            </div>
+
+            <div class="form-row">
+                <label for="title">Title :</label>
+                <input type="text" id="title" name="title" />
+            </div>
+
+            <div class="form-row">
+                <label for="image">Image :</label>
+                <input type="file" id="image" name="image" />
+            </div>
+
+        </div>
+
+        <h2>Enter Blog Below</h2>
+
+        <div style="width:70%; margin:0 auto;">
+            <textarea id="blog" name="blog"></textarea>
+
+            <div class="button-row">
+                <input type="reset" value="reset" />
+                <input type="submit" value="submit" />
+            </div>
+        </div>
+
+    </form>
+
+</body>
+</html>

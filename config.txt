@@ -1,0 +1,4 @@
+localhost
+student
+hello
+student_space

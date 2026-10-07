@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Shopping Cart - Balanced Living</title>
+    <meta charset="UTF-8" />
+
+    <script src="cart.js"></script>
+
+    <style>
+        body {
+            background-color: #2224A2;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            margin: 20px 0;
+        }
+
+        #cart-container {
+            width: 75%;
+            margin: 20px auto;
+            background-color: #CCCCCC;
+            padding: 20px;
+            border: 3px solid black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #2224A2;
+            color: white;
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #999999;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .total-row td {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .remove-btn {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .remove-btn:hover {
+            background-color: #990000;
+        }
+
+        .checkout-btn {
+            margin-top: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .checkout-btn:hover {
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        .nav-links a {
+            color: #000066;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Shopping Cart</h1>
+
+<div id="cart-container">
+
+    <div id="cart-content"></div>
+
+    <div class="nav-links">
+        <a href="store_index.html">Continue Shopping</a>
+    </div>
+
+</div>
+
+<script>
+    function buildCart() {
+        var items = getCartItems();
+        var container = document.getElementById("cart-content");
+
+        if (items.length === 0) {
+            alert("Your shopping cart is empty!");
+            window.location.href = "store_index.html";
+            return;
+        }
+
+        var html = "<table>";
+        html += "<tr>";
+        html += "<th>Catalog #</th>";
+        html += "<th>Item</th>";
+        html += "<th>Price</th>";
+        html += "<th>Quantity</th>";
+        html += "<th>Total</th>";
+        html += "</tr>";
+
+        var grandTotal = 0;
+
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var lineTotal = item.product.price * item.qty;
+            grandTotal += lineTotal;
+
+            html += "<tr>";
+            html += "<td>" + item.product.id + "</td>";
+            html += "<td>";
+            html += "<strong>" + item.product.name + "</strong><br />";
+            html += "<img src='" + item.product.img + "' width='80' height='80' alt='" + item.product.name + "' /><br />";
+            html += "<button class='remove-btn' onclick='removeItem(" + item.product.id + ")'>Remove</button>";
+            html += "</td>";
+            html += "<td>$" + item.product.price.toFixed(2) + "</td>";
+            html += "<td>" + item.qty + "</td>";
+            html += "<td>$" + lineTotal.toFixed(2) + "</td>";
+            html += "</tr>";
+        }
+
+        html += "<tr class='total-row'>";
+        html += "<td colspan='4' style='text-align:right;'>TOTAL:</td>";
+        html += "<td>$" + grandTotal.toFixed(2) + "</td>";
+        html += "</tr>";
+        html += "</table>";
+
+        html += "<br />";
+        html += "<button class='checkout-btn' onclick=\"window.location.href='checkout.html'\">";
+        html += "<img src='checkout.gif' alt='Checkout NOW!' />";
+        html += "</button>";
+
+        container.innerHTML = html;
+    }
+
+    function removeItem(catalogId) {
+        var product = null;
+        for (var i = 0; i < PRODUCTS.length; i++) {
+            if (PRODUCTS[i].id === catalogId) {
+                product = PRODUCTS[i];
+                break;
+            }
+        }
+
+        var confirmed = confirm("Are you sure you want to remove \"" + product.name + "\" from your cart?");
+
+        if (confirmed) {
+            removeFromCart(catalogId);
+
+            if (cartIsEmpty()) {
+                alert("Your shopping cart is empty!");
+                window.location.href = "store_index.html";
+            } else {
+                buildCart();
+            }
+        }
+    }
+
+    window.onload = buildCart;
+</script>
+
+</body>
+</html>

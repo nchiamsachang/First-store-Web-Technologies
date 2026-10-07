@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Soul Healing</title>
+    <meta charset="UTF-8" />
+
+    <script src="cart.js"></script>
+
+    <style>
+        body {
+            background-color: #2224A2;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .product-container {
+            width: 60%;
+            margin: 40px auto;
+            background-color: #CCCCCC;
+            padding: 20px;
+            border: 3px solid black;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        .product-image {
+            border: 3px solid black;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .description {
+            font-family: "Lucida Calligraphy";
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .price {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .quantity-box {
+            margin-top: 10px;
+        }
+
+        .add-button {
+            margin-top: 15px;
+            width: 150px;
+            height: 50px;
+            background-image: url("images/home/atc.png");
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+        }
+
+        .continue-link {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="product-container">
+
+    <h1>Soul Healing</h1>
+
+    <img src="images/e-books/health/Soul.jpg" class="product-image" alt="Soul Healing" />
+
+    <div class="description">
+        A Guide to a Happy and Healthy Life by Basic Lifestyle Changes.
+    </div>
+
+    <div class="price">
+        Price: $1.99
+    </div>
+
+    <div class="quantity-box">
+        Quantity:
+        <input type="text" id="qty" maxlength="2" size="2" />
+    </div>
+
+    <button class="add-button" onclick="handleAddToCart(3, 'qty')"></button>
+
+    <a href="store_index.html" class="continue-link">Continue Shopping</a>
+
+</div>
+
+</body>
+</html>

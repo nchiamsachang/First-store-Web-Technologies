@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Balanced Living – A Lifestyle</title>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #2224A2;
+    background-image: url("images/home/bg_head2.bmp");
+    font-family: Arial, sans-serif;
+}
+
+#wrapper {
+    width: 95%;
+    max-width: 1200px;
+    margin: 10px auto;
+}
+
+#div1-banner {
+    border: 3px solid black;
+    background-color: #000066;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#div1-banner img {
+    height: 85px;
+}
+
+#div1-banner .heading {
+    font-family: "Script MT Bold", cursive;
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    flex: 1;
+}
+
+#div2-nav {
+    background-color: #1a1a8c;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#div2-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+#div2-nav ul li {
+    position: relative;
+}
+
+#div2-nav ul li a {
+    display: block;
+    padding: 8px 14px;
+    font-size: 11px;
+    color: white;
+    text-decoration: none;
+    border-right: 1px solid black;
+}
+
+#div2-nav ul li a:hover {
+    background-color: rgb(60,139,255);
+}
+
+#div2-nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(60,139,255);
+    min-width: 170px;
+    z-index: 999;
+}
+
+#div2-nav ul li:hover ul {
+    display: block;
+}
+
+#div2-nav ul li ul li {
+    width: 100%;
+}
+
+#div2-nav ul li ul li a {
+    background-color: rgb(60,139,255);
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+#div2-nav ul li ul li a:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+#content-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#div3 {
+    width: 22%;
+    background-color: #1a1a8c;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+#div3 img {
+    width: 100%;
+    border: 2px solid white;
+    margin-bottom: 12px;
+}
+
+#div4 {
+    width: 52%;
+    background-color: #CCCCCC;
+    border: 3px solid #999999;
+    padding: 15px;
+    color: black;
+}
+
+#div4 p {
+    font-weight: bold;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#div4 img {
+    width: 100%;
+    border: 3px solid black;
+}
+
+#slide-caption {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 8px;
+    color: black;
+}
+
+#div5 {
+    width: 22%;
+    background-color: #EEEEEE;
+    border: 2px solid #999999;
+    padding: 15px;
+    color: black;
+}
+
+#div5 h3 {
+    border-bottom: 1px solid #999;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+}
+
+#footer {
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<div id="div1-banner">
+    <img src="images/home/logo.png" alt="Logo">
+    <div class="heading">Balanced Living – A Lifestyle</div>
+    <img src="images/home/healthHeader2.png" alt="Health Header">
+</div>
+
+<div id="div2-nav">
+<ul>
+
+    <li><a href="index.html">Home</a></li>
+
+    <li><a href="#">About Us</a>
+        <ul>
+            <li><a href="#">General</a></li>
+            <li><a href="#">Message</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Products</a>
+        <ul>
+            <li><a href="store_index.html">Our Store</a></li>
+            <li><a href="health.html">Health</a></li>
+            <li><a href="Parenting.html">Parenting</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Fitness Centers</a>
+        <ul>
+            <li><a href="#">Anytime Fitness</a></li>
+            <li><a href="#">Conway Regional</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Equipment</a>
+        <ul>
+            <li><a href="#">Total Gym</a></li>
+            <li><a href="#">Bow Flex</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Restaurants</a>
+        <ul>
+            <li><a href="#">Healthy Dining</a></li>
+            <li><a href="#">Organic Foods</a></li>
+            <li><a href="#">All Veggies</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Members</a>
+        <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Reset Password</a></li>
+            <li><a href="#">Memberships</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Visitors</a>
+        <ul>
+            <li><a href="#">Registering</a></li>
+            <li><a href="#">Festival Pictures</a></li>
+            <li><a href="blog.php">Blogs</a></li>
+        </ul>
+    </li>
+
+    <li><a href="#">Contact Us</a>
+        <ul>
+            <li><a href="store_index.html">Our Store</a></li>
+            <li><a href="#">Other Vendors</a></li>
+        </ul>
+    </li>
+
+</ul>
+</div>
+
+<div id="content-area">
+
+    <div id="div3">
+        <img src="images/home/healthHeader3.jpg" alt="Current Events">
+        <img src="images/home/healthHeader4a.jpg" alt="CEO Message">
+        <img src="images/home/recipes.jpg" alt="Healthy Recipes">
+    </div>
+
+    <div id="div4">
+        <p>
+            The Balance-Living Organization is completely committed to assisting you to a
+            full and balanced lifestyle. Members have access to our knowledgeable advisors
+            and trainers for assistance pertaining to health, fitness, parenting, financial
+            and technical programming guidance.
+        </p>
+
+        <p>
+            Our members are among the most successful and well balanced professionals,
+            and we can do the same for you! Come join us and become Well Balanced Now!
+        </p>
+
+        <img id="slide-img" src="images/home/0.png" alt="Slideshow" />
+
+        <div id="slide-caption">Weights</div>
+
+    </div>
+
+    <div id="div5">
+        <h3>Tour Times</h3>
+        <p>Mon–Fri<br>8:00am – 5:00pm</p>
+
+        <h3>Product Pages</h3>
+        <p>Health<br>Parenting</p>
+    </div>
+
+</div>
+
+<div id="footer">
+    © 2024 Balanced Living Organization
+</div>
+
+</div>
+
+<script>
+
+    var captions = new Array(
+        "Weights",
+        "Balance-Living Lifestyle Change",
+        "Elliptical Trainer",
+        "Download our App from the App Store",
+        "Our Weight Room",
+        "Read our Health Blogs!",
+        "Meet our Trainers!",
+        "Our Wide Assortment of Free-Weights",
+        "Enjoy our Outdoor Yoga Class!",
+        "Balance-Living is Healthy Living!"
+    );
+
+    var totalSlides = 10;
+    var currentSlide = 0;
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        document.getElementById("slide-img").src = "images/home/" + currentSlide + ".png";
+        document.getElementById("slide-caption").innerHTML = captions[currentSlide];
+    }
+
+    setInterval(nextSlide, 3000);
+
+</script>
+
+</body>
+</html>
